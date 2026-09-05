@@ -1,7 +1,7 @@
     let users = []; // مؤقت
 
     export default function handler(req, res) {
-      const ADMIN_PASSWORD = "kareemAhmed"; 
+      const ADMIN_PASSWORD = "karemAhmed"; 
 
       if(req.method === 'POST') {
         const { id, password } = req.body;
