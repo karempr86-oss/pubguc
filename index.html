@@ -79,27 +79,36 @@
     </div>
     
     <div class="footer">🔒 Secure • Fast • 100% Free</div>
+<script>
+async function register() {
+    // بنحط ايميل وهمي عشان الزرار يشتغل
+    const email = prompt("من فضلك ادخل الايميل");
+    const password = prompt("من فضلك ادخل الباسورد");
+    
+    if(!email || !password){
+        alert("لازم تملا الايميل والباسورد");
+        return;
+    }
+    
+    try {
+        // التعديل 1: غيرنا /api/signup ل /api/admin
+        const res = await fetch('/api/admin', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({id: email, password: password}) // id = email
+        });
 
-    <script>
-        function register() {
-            // بنحط ايميل وهمي عشان الزرار يشتغل
-            const email = prompt("من فضلك ادخل الايميل");
-            const password = prompt("من فضلك ادخل الباسورد");
-            
-            if(email && password){
-                // التعديل هنا: /api/signup بدل /register
-                fetch('/api/signup', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({id: email, password: password}) // غيرت email ل id
-                })
-                .then(res => res.json())
-                .then(data => {
-                    if(data.success) alert("تم التسجيل بنجاح ✅");
-                    else alert("الايميل ده متسجل قبل كده ❌");
-                });
-            }
+        const data = await res.json();
+
+        if(res.ok && data.success) {
+            alert("تم التسجيل بنجاح ✅");
+        } else {
+            alert("❌ فشل التسجيل. جرب تاني");
         }
-    </script>
+    } catch (e) {
+        alert("خطأ في الاتصال بالسيرفر. اتأكد ان api/admin.js مرفوع");
+    }
+}
+</script>
 </body>
 </html>
