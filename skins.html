@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>متجر الاسكنات - PUBG</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+body {
+    background: #0a0f1f;
+    font-family: 'Cairo', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 20px;
+}
+.header {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    color: black;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+.header h1 { font-size: 35px; font-weight: 900; }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.card {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid #FFD700;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+.card:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(255,215,0,0.5); }
+.card img { width: 100%; border-radius: 10px; }
+.card h3 { margin: 10px 0; color: #FFD700; }
+.card button {
+    background: #FFD700; color: black; border: none;
+    padding: 10px 20px; border-radius: 10px;
+    font-weight: bold; cursor: pointer; width: 100%;
+}
+.card button:hover { background: #FFA500; }
+.logout { 
+    position: fixed; top: 20px; left: 20px; 
+    background: red; color: white; border: none; 
+    padding: 10px 15px; border-radius: 10px; cursor: pointer;
+}
+</style>
+</head>
+<body>
+<button class="logout" onclick="window.location='index.html'">تسجيل خروج</button>
+
+<div class="header">
+    <h1>🎁 متجر الاسكنات المجاني 🎁</h1>
+    <p>اختر الاسكن اللي يعجبك واحصل عليه الان</p>
+</div>
+
+<div class="grid">
+    <div class="card">
+        <img src="https://i.imgur.com/3ZvQ9pL.jpg" alt="M416">
+        <h3>اسكن M416 الجوكر</h3>
+        <p>السعر: 600 UC</p>
+        <button onclick="alert('تم المطالبة بالاسكن بنجاح ✅')">المطالبة الان</button>
+    </div>
+    
+    <div class="card">
+        <img src="https://i.imgur.com/kP3mQ9w.jpg" alt="Set">
+        <h3>طقم الغراب الاسطوري</h3>
+        <p>السعر: 1200 UC</p>
+        <button onclick="alert('تم المطالبة بالاسكن بنجاح ✅')">المطالبة الان</button>
+    </div>
+    
+    <div class="card">
+        <img src="https://i.imgur.com/8QzZQ9m.jpg" alt="Car">
+        <h3>اسكن باجي ذهبي</h3>
+        <p>السعر: 400 UC</p>
+        <button onclick="alert('تم المطالبة بالاسكن بنجاح ✅')">المطالبة الان</button>
+    </div>
+    
+    <div class="card">
+        <img src="https://i.imgur.com/QYvYg5k.jpg" alt="Helmet">
+        <h3>خوذة ليفل 3 تنين</h3>
+        <p>السعر: 800 UC</p>
+        <button onclick="alert('تم المطالبة بالاسكن بنجاح ✅')">المطالبة الان</button>
+    </div>
+</div>
+
+</body>
+</html>
