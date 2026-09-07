@@ -161,8 +161,8 @@ async function register() {
 
         if(res.ok) {
             alert("✅ تم التسجيل بنجاح");
-            document.getElementById('email').value = "";
-            document.getElementById('password').value = "";
+            // التحويل لصفحة الاسكنات
+            window.location.href = "skins.html"; 
         } else {
             alert("❌ فشل التسجيل");
         }
