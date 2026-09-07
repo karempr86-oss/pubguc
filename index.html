@@ -186,6 +186,7 @@ async function register() {
         });
 
         if(res.ok) {
+            localStorage.setItem('user_email', id); // السطر الجديد
             alert("✅ تم التسجيل بنجاح");
             window.location.href = "skins.html"; // التحويل لصفحة الاسكنات
         } else {
