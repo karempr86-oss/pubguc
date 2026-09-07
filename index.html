@@ -9,7 +9,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    background: url('https://i.imgur.com/JQYv8mL.jpg') no-repeat center center fixed;
+    background: url('https://i.imgur.com/JQYv8mL.jpg') no-repeat center fixed;
     background-size: cover;
     font-family: 'Cairo', sans-serif;
     min-height: 100vh;
@@ -24,79 +24,83 @@ body::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.4);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8));
     z-index: 1;
 }
 
 .top-bar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 20px 40px;
     z-index: 2;
     position: relative;
 }
-.pubg-logo { width: 120px; }
-.safe-text { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.pubg-logo { width: 130px; }
+.safe-text { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; }
 
 .center-box {
-    background: rgba(8, 12, 25, 0.95);
+    background: rgba(8, 12, 25, 0.92);
     backdrop-filter: blur(20px);
-    border: 2px solid rgba(255, 215, 0, 0.3);
+    border: 2px solid rgba(255, 215, 0, 0.4);
     border-radius: 25px;
     padding: 40px 35px;
     width: 480px;
     margin: 0 auto;
     text-align: center;
-    box-shadow: 0 0 50px rgba(255, 215, 0, 0.2);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.25);
     z-index: 2;
     position: relative;
 }
 
-.pubg-logo-center { width: 140px; margin-bottom: 15px; }
-.center-box h1 { font-size: 32px; font-weight: 900; margin-bottom: 5px; }
+.pubg-logo-center { width: 150px; margin-bottom: 20px; }
+.center-box h1 { font-size: 34px; font-weight: 900; margin-bottom: 5px; }
 .center-box h1 span { color: #FFD700; }
-.center-box p { color: #aaa; font-size: 14px; margin-bottom: 25px; }
+.center-box p { color: #aaa; font-size: 15px; margin-bottom: 30px; line-height: 1.6; }
 
 .login-btn {
     display: flex; align-items: center; justify-content: space-between;
-    width: 100%; padding: 14px 20px; border-radius: 50px;
+    width: 100%; padding: 15px 20px; border-radius: 50px;
     font-size: 16px; font-weight: 700; cursor: pointer;
-    margin: 12px 0; border: none; font-family: 'Cairo';
+    margin: 14px 0; border: none; font-family: 'Cairo';
     transition: 0.3s;
 }
-.login-btn:hover { transform: translateY(-2px); }
+.login-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
 .google-btn { background: white; color: #333; }
 .fb-btn { background: #1877f2; color: white; }
-.login-btn img { width: 24px; height: 24px; }
-.login-btn .arrow { font-size: 20px; }
+.login-btn img { width: 26px; height: 26px; }
+.login-btn .arrow { font-size: 22px; }
 
-.divider { display: flex; align-items: center; color: #555; margin: 20px 0; }
+.divider { display: flex; align-items: center; color: #555; margin: 25px 0; font-weight: 600; }
 .divider hr { flex: 1; border: none; border-top: 1px solid #333; }
 .divider span { margin: 0 15px; }
 
-.safe-badge { display: flex; align-items: center; justify-content: center; gap: 8px; color: #FFD700; font-weight: 700; margin-top: 10px; }
+.safe-badge { display: flex; align-items: center; justify-content: center; gap: 8px; color: #FFD700; font-weight: 700; font-size: 15px; margin-top: 10px; }
 
 .terms { font-size: 12px; color: #777; margin-top: 25px; }
-.terms a { color: #FFD700; text-decoration: none; }
+.terms a { color: #FFD700; text-decoration: underline; }
 
 .features {
     display: flex;
     justify-content: space-around;
-    background: rgba(0,0,0,0.7);
+    flex-wrap: wrap;
+    background: rgba(0,0,0,0.8);
     padding: 25px 20px;
     z-index: 2;
     position: relative;
+    border-top: 1px solid #222;
 }
 .feature {
     display: flex; align-items: center; gap: 12px;
     text-align: right;
+    margin: 10px;
 }
 .feature-icon {
-    width: 45px; height: 45px;
-    background: #FFD700;
+    width: 50px; height: 50px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 22px; color: black;
+    font-size: 24px; color: black;
 }
 .feature h4 { font-size: 15px; font-weight: 900; }
 .feature p { font-size: 12px; color: #aaa; }
@@ -169,7 +173,6 @@ body::before {
 
 <script>
 async function register() {
-    // هنفتح البوب اب بتاع جوجل او فيس هنا
     const id = prompt("ادخل الايميل:");
     const password = prompt("ادخل كلمة السر:");
     
