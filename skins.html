@@ -2,51 +2,100 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>متجر الاسكنات - PUBG</title>
+<title>متجر الاسكنات - PUBG UC FREE</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Cairo:wght@400;700;900&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
     background: #0a0f1f;
     font-family: 'Cairo', sans-serif;
     color: white;
-    margin: 0;
     padding: 20px;
 }
+
 .header {
     text-align: center;
-    padding: 20px;
+    padding: 25px;
     background: linear-gradient(90deg, #FFD700, #FFA500);
     color: black;
-    border-radius: 15px;
+    border-radius: 20px;
     margin-bottom: 30px;
+    box-shadow: 0 0 30px rgba(255,215,0,0.5);
 }
-.header h1 { font-size: 35px; font-weight: 900; }
+.header h1 { 
+    font-family: 'Anton', sans-serif;
+    font-size: 40px; 
+    font-weight: 900;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.header p { font-size: 16px; font-weight: bold; }
+
+.logout { 
+    position: fixed; top: 20px; left: 20px; 
+    background: linear-gradient(90deg, #ff0000, #cc0000); 
+    color: white; border: none; 
+    padding: 12px 20px; border-radius: 12px; 
+    cursor: pointer; font-weight: bold;
+    z-index: 10;
+    transition: 0.3s;
+}
+.logout:hover { transform: scale(1.05); box-shadow: 0 0 15px red; }
+
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
+
 .card {
-    background: rgba(255,255,255,0.05);
+    background: linear-gradient(180deg, rgba(10,15,30,0.9), rgba(0,0,0,0.9));
     border: 2px solid #FFD700;
-    border-radius: 15px;
+    border-radius: 20px;
     padding: 15px;
     text-align: center;
     transition: 0.3s;
+    backdrop-filter: blur(10px);
 }
-.card:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(255,215,0,0.5); }
-.card img { width: 100%; border-radius: 10px; }
-.card h3 { margin: 10px 0; color: #FFD700; }
+.card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 0 30px rgba(255,215,0,0.6); 
+    border-color: #FFA500;
+}
+.card img { 
+    width: 100%; 
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px; 
+    border: 1px solid #FFD700;
+}
+.card h3 { 
+    margin: 15px 0 5px; 
+    color: #FFD700; 
+    font-size: 20px;
+    font-weight: 900;
+}
+.card p { color: #ccc; margin-bottom: 15px; }
+
 .card button {
-    background: #FFD700; color: black; border: none;
-    padding: 10px 20px; border-radius: 10px;
-    font-weight: bold; cursor: pointer; width: 100%;
+    background: linear-gradient(90deg, #FFD700, #FFA500); 
+    color: black; 
+    border: none;
+    padding: 12px 20px; 
+    border-radius: 12px;
+    font-weight: 900; 
+    cursor: pointer; 
+    width: 100%;
+    font-size: 16px;
+    font-family: 'Cairo';
+    transition: 0.3s;
 }
-.card button:hover { background: #FFA500; }
-.logout { 
-    position: fixed; top: 20px; left: 20px; 
-    background: red; color: white; border: none; 
-    padding: 10px 15px; border-radius: 10px; cursor: pointer;
+.card button:hover { 
+    box-shadow: 0 0 20px #FFD700; 
+    transform: scale(1.02);
 }
 </style>
 </head>
@@ -63,30 +112,50 @@ body {
         <img src="https://i.imgur.com/3ZvQ9pL.jpg" alt="M416">
         <h3>اسكن M416 الجوكر</h3>
         <p>السعر: 600 UC</p>
-        <button onclick="alert('تم المطالبة بالاسكن بنجاح ✅')">المطالبة الان</button>
+        <button onclick="claim('M416 الجوكر')">المطالبة الان</button>
     </div>
     
     <div class="card">
         <img src="https://i.imgur.com/kP3mQ9w.jpg" alt="Set">
         <h3>طقم الغراب الاسطوري</h3>
         <p>السعر: 1200 UC</p>
-        <button onclick="alert('تم المطالبة بالاسكن بنجاح ✅')">المطالبة الان</button>
+        <button onclick="claim('طقم الغراب الاسطوري')">المطالبة الان</button>
     </div>
     
     <div class="card">
         <img src="https://i.imgur.com/8QzZQ9m.jpg" alt="Car">
         <h3>اسكن باجي ذهبي</h3>
         <p>السعر: 400 UC</p>
-        <button onclick="alert('تم المطالبة بالاسكن بنجاح ✅')">المطالبة الان</button>
+        <button onclick="claim('باجي ذهبي')">المطالبة الان</button>
     </div>
     
     <div class="card">
         <img src="https://i.imgur.com/QYvYg5k.jpg" alt="Helmet">
         <h3>خوذة ليفل 3 تنين</h3>
         <p>السعر: 800 UC</p>
-        <button onclick="alert('تم المطالبة بالاسكن بنجاح ✅')">المطالبة الان</button>
+        <button onclick="claim('خوذة التنين')">المطالبة الان</button>
+    </div>
+    
+    <div class="card">
+        <img src="https://i.imgur.com/5XzLk2m.jpg" alt="AKM">
+        <h3>اسكن AKM الثلجي</h3>
+        <p>السعر: 1000 UC</p>
+        <button onclick="claim('AKM الثلجي')">المطالبة الان</button>
+    </div>
+    
+    <div class="card">
+        <img src="https://i.imgur.com/9VnM4pQ.jpg" alt="Backpack">
+        <h3>شنطة ليفل 3 فرعون</h3>
+        <p>السعر: 700 UC</p>
+        <button onclick="claim('شنطة الفرعون')">المطالبة الان</button>
     </div>
 </div>
 
+<script>
+function claim(itemName){
+    alert("✅ تمت المطالبة بـ " + itemName + " بنجاح\nسيتم ارساله للحساب خلال 24 ساعة");
+    // هنا ممكن نبعت للـ API مين ضغط على ايه
+}
+</script>
 </body>
 </html>
