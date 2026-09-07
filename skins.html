@@ -28,7 +28,6 @@ body {
     font-family: 'Anton', sans-serif;
     font-size: 40px; 
     font-weight: 900;
-    text-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 .header p { font-size: 16px; font-weight: bold; }
 
@@ -47,7 +46,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -67,7 +66,7 @@ body {
 }
 .card img { 
     width: 100%; 
-    height: 200px;
+    height: 220px;
     object-fit: cover;
     border-radius: 15px; 
     border: 1px solid #FFD700;
@@ -97,6 +96,8 @@ body {
     box-shadow: 0 0 20px #FFD700; 
     transform: scale(1.02);
 }
+
+.rarity { font-size: 12px; color: #FFD700; font-weight: bold; }
 </style>
 </head>
 <body>
@@ -104,57 +105,164 @@ body {
 
 <div class="header">
     <h1>🎁 متجر الاسكنات المجاني 🎁</h1>
-    <p>اختر الاسكن اللي يعجبك واحصل عليه الان</p>
+    <p>اختر الاسكن اللي يعجبك واحصل عليه الان - 18 سكن اسطوري</p>
 </div>
 
 <div class="grid">
+    <!-- اسلحة -->
     <div class="card">
         <img src="https://i.imgur.com/3ZvQ9pL.jpg" alt="M416">
-        <h3>اسكن M416 الجوكر</h3>
+        <h3>M416 الجوكر</h3>
+        <p class="rarity">اسطوري</p>
         <p>السعر: 600 UC</p>
         <button onclick="claim('M416 الجوكر')">المطالبة الان</button>
     </div>
     
     <div class="card">
+        <img src="https://i.imgur.com/5XzLk2m.jpg" alt="AKM">
+        <h3>AKM الثلجي</h3>
+        <p class="rarity">اسطوري</p>
+        <p>السعر: 1000 UC</p>
+        <button onclick="claim('AKM الثلجي')">المطالبة الان</button>
+    </div>
+
+    <div class="card">
+        <img src="https://i.imgur.com/8R9vK3w.jpg" alt="AWM">
+        <h3>AWM الناري</h3>
+        <p class="rarity">اسطوري</p>
+        <p>السعر: 1200 UC</p>
+        <button onclick="claim('AWM الناري')">المطالبة الان</button>
+    </div>
+
+    <div class="card">
+        <img src="https://i.imgur.com/2KpL9mN.jpg" alt="GROZA">
+        <h3>GROZA التنين</h3>
+        <p class="rarity">اسطوري</p>
+        <p>السعر: 800 UC</p>
+        <button onclick="claim('GROZA التنين')">المطالبة الان</button>
+    </div>
+
+    <!-- اطقم -->
+    <div class="card">
         <img src="https://i.imgur.com/kP3mQ9w.jpg" alt="Set">
         <h3>طقم الغراب الاسطوري</h3>
+        <p class="rarity">اسطوري</p>
         <p>السعر: 1200 UC</p>
         <button onclick="claim('طقم الغراب الاسطوري')">المطالبة الان</button>
     </div>
     
     <div class="card">
+        <img src="https://i.imgur.com/9VnM4pQ.jpg" alt="Pharaoh">
+        <h3>طقم الفرعون الذهبي</h3>
+        <p class="rarity">اسطوري</p>
+        <p>السعر: 1500 UC</p>
+        <button onclick="claim('طقم الفرعون الذهبي')">المطالبة الان</button>
+    </div>
+
+    <div class="card">
+        <img src="https://i.imgur.com/7QwE4rT.jpg" alt="Cyber">
+        <h3>طقم السايبر بانك</h3>
+        <p class="rarity">نادر</p>
+        <p>السعر: 900 UC</p>
+        <button onclick="claim('طقم السايبر بانك')">المطالبة الان</button>
+    </div>
+
+    <div class="card">
+        <img src="https://i.imgur.com/1ZxC8vB.jpg" alt="Samurai">
+        <h3>طقم الساموراي</h3>
+        <p class="rarity">اسطوري</p>
+        <p>السعر: 1100 UC</p>
+        <button onclick="claim('طقم الساموراي')">المطالبة الان</button>
+    </div>
+
+    <!-- مركبات -->
+    <div class="card">
         <img src="https://i.imgur.com/8QzZQ9m.jpg" alt="Car">
-        <h3>اسكن باجي ذهبي</h3>
+        <h3>باجي ذهبي</h3>
+        <p class="rarity">نادر</p>
         <p>السعر: 400 UC</p>
         <button onclick="claim('باجي ذهبي')">المطالبة الان</button>
     </div>
     
     <div class="card">
+        <img src="https://i.imgur.com/4NmP6qR.jpg" alt="Dacia">
+        <h3>داسيا رياضية</h3>
+        <p class="rarity">نادر</p>
+        <p>السعر: 500 UC</p>
+        <button onclick="claim('داسيا رياضية')">المطالبة الان</button>
+    </div>
+
+    <div class="card">
+        <img src="https://i.imgur.com/6LkJ3hG.jpg" alt="Motorcycle">
+        <h3>موتوسيكل النار</h3>
+        <p class="rarity">اسطوري</p>
+        <p>السعر: 700 UC</p>
+        <button onclick="claim('موتوسيكل النار')">المطالبة الان</button>
+    </div>
+
+    <!-- خوذ وشنط -->
+    <div class="card">
         <img src="https://i.imgur.com/QYvYg5k.jpg" alt="Helmet">
         <h3>خوذة ليفل 3 تنين</h3>
+        <p class="rarity">اسطوري</p>
         <p>السعر: 800 UC</p>
         <button onclick="claim('خوذة التنين')">المطالبة الان</button>
     </div>
-    
-    <div class="card">
-        <img src="https://i.imgur.com/5XzLk2m.jpg" alt="AKM">
-        <h3>اسكن AKM الثلجي</h3>
-        <p>السعر: 1000 UC</p>
-        <button onclick="claim('AKM الثلجي')">المطالبة الان</button>
-    </div>
-    
+
     <div class="card">
         <img src="https://i.imgur.com/9VnM4pQ.jpg" alt="Backpack">
         <h3>شنطة ليفل 3 فرعون</h3>
+        <p class="rarity">اسطوري</p>
         <p>السعر: 700 UC</p>
         <button onclick="claim('شنطة الفرعون')">المطالبة الان</button>
     </div>
+
+    <div class="card">
+        <img src="https://i.imgur.com/3FgH5jK.jpg" alt="Helmet2">
+        <h3>خوذة ليفل 3 ثلجية</h3>
+        <p class="rarity">نادر</p>
+        <p>السعر: 600 UC</p>
+        <button onclick="claim('خوذة ثلجية')">المطالبة الان</button>
+    </div>
+
+    <!-- اضافات -->
+    <div class="card">
+        <img src="https://i.imgur.com/8XyZ1aB.jpg" alt="Grenade">
+        <h3>قنبلة الدخان الملونة</h3>
+        <p class="rarity">نادر</p>
+        <p>السعر: 200 UC</p>
+        <button onclick="claim('قنبلة الدخان')">المطالبة الان</button>
+    </div>
+
+    <div class="card">
+        <img src="https://i.imgur.com/2CdE4fG.jpg" alt="Parachute">
+        <h3>براشوت النسر</h3>
+        <p class="rarity">اسطوري</p>
+        <p>السعر: 450 UC</p>
+        <button onclick="claim('براشوت النسر')">المطالبة الان</button>
+    </div>
+
+    <div class="card">
+        <img src="https://i.imgur.com/5HiJ7kL.jpg" alt="Emote">
+        <h3>رقصة الفوز</h3>
+        <p class="rarity">نادر</p>
+        <p>السعر: 300 UC</p>
+        <button onclick="claim('رقصة الفوز')">المطالبة الان</button>
+    </div>
+
+    <div class="card">
+        <img src="https://i.imgur.com/9MnO0pQ.jpg" alt="Avatar">
+        <h3>اطار بروفايل اسطوري</h3>
+        <p class="rarity">اسطوري</p>
+        <p>السعر: 350 UC</p>
+        <button onclick="claim('اطار بروفايل')">المطالبة الان</button>
+    </div>
+
 </div>
 
 <script>
 function claim(itemName){
     alert("✅ تمت المطالبة بـ " + itemName + " بنجاح\nسيتم ارساله للحساب خلال 24 ساعة");
-    // هنا ممكن نبعت للـ API مين ضغط على ايه
 }
 </script>
 </body>
